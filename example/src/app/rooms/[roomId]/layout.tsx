@@ -7,6 +7,7 @@ import {
   RoomProvider,
 } from '@liveblocks/react'
 import { PropsWithChildren, use } from 'react'
+import { resolveRoomsInfo } from './actions'
 
 export default function RoomLayout({
   params,
@@ -17,9 +18,9 @@ export default function RoomLayout({
   const { roomId } = use(params)
 
   return (
-    // @ts-expect-error no auth point
     <LiveblocksProvider
-      publicApiKey={process.env.NEXT_PUBLIC_LIVEBLOCKS_PUBLIC_KEY}
+      authEndpoint="/api/liveblocks-auth"
+      resolveRoomsInfo={resolveRoomsInfo}
     >
       <RoomProvider id={roomId} initialStorage={{ tasks: new LiveList([]) }}>
         <ClientSideSuspense fallback={<div>Loading…</div>}>

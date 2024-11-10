@@ -1,17 +1,39 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { LiveObject } from '@liveblocks/client'
-import { useMutation, useOthers, useRoom, useStorage } from '@liveblocks/react'
+import {
+  useMutation,
+  useOthers,
+  useRoom,
+  useRoomInfo,
+  useStorage,
+} from '@liveblocks/react'
 
 export default function RoomPage() {
   const room = useRoom()
+  const roomInfo = useRoomInfo(room.id)
   const others = useOthers()
 
   return (
     <section>
-      <h2>Room: {room.id}</h2>
+      <h2>Room: {roomInfo.info?.name}</h2>
       <p>
-        <small>{others.length} other user(s) connected</small>
+        <small>
+          {others.length} other user(s) connected:{' '}
+          {others.map((user) => (
+            <span key={user.id} className="mr-2">
+              {user.info.imageUrl && (
+                <img
+                  alt=""
+                  src={user.info.imageUrl}
+                  className="w-4  h-4 rounded-full inline"
+                />
+              )}{' '}
+              {user.info.name}
+            </span>
+          ))}
+        </small>
       </p>
       <TaskList />
     </section>

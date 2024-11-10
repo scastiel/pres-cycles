@@ -32,9 +32,8 @@ declare global {
     UserMeta: {
       id: string
       info: {
-        // Example properties, for useSelf, useUser, useOthers, etc.
-        // name: string;
-        // avatar: string;
+        name: string
+        imageUrl: string | null
       }
     }
 
@@ -56,6 +55,7 @@ declare global {
       // Example, rooms with a title and url
       // title: string;
       // url: string;
+      name: string
     }
   }
 }

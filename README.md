@@ -1,5 +1,7 @@
 J'espère que vous avec apprécié cette présentation!
 
+- [🙏 Dites-moi ce que vous en avec pensé](https://nicoespeon.notion.site/1453f52c56c1815f87b7df001cff701f)
+
 L'app d'exemple est dans le répertoire `example` de ce repository.
 
 Liens utiles:
